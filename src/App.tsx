@@ -1,23 +1,31 @@
+// App.tsx
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './pages/HomeScreen';
-import DetailsScreen from './pages/DetailsScreen';
-import {IRootStackParamList} from './Interfaces/navigator.interface';
+import UserScreen from './pages/UserScreen';
+import ProductScreen from './pages/ProductScreen';
 
-const Stack = createNativeStackNavigator<IRootStackParamList>();
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-// const Tab = createBottomTabNavigator();
+function DetailsTabNavigator() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="User" component={UserScreen} />
+      <Tab.Screen name="Product" component={ProductScreen} />
+    </Tab.Navigator>
+  );
+}
 
-function App() {
+export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Details" component={DetailsTabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-export default App;
