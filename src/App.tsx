@@ -7,6 +7,8 @@ import {IRootStackParamList} from './Interfaces/navigator.interface';
 
 const Stack = createNativeStackNavigator<IRootStackParamList>();
 
+// const Tab = createBottomTabNavigator();
+
 function App() {
   return (
     <NavigationContainer>
