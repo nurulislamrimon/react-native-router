@@ -1,25 +1,28 @@
-// types.ts
-import {RouteProp} from '@react-navigation/native';
+// navigator.interface.ts
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-// Define the param list for each screen in the stack
+// Stack navigation param list
 export type IRootStackParamList = {
   Home: undefined;
-  Details: {
+  Details: undefined;
+  DetailsScreen: {
     itemId: string;
     otherParam: string;
   };
 };
 
+// Tab navigation param list
+export type IDetailsTabParamList = {
+  User: undefined;
+  Product: undefined;
+};
+
+// Navigation prop types
 export type IHomeScreenNavigationProp = NativeStackNavigationProp<
   IRootStackParamList,
   'Home'
 >;
-
 export type IDetailsScreenNavigationProp = NativeStackNavigationProp<
   IRootStackParamList,
-  'Details'
+  'DetailsScreen'
 >;
-
-// Route props (if you need access to route params in your component)
-export type DetailsScreenRouteProp = RouteProp<IRootStackParamList, 'Details'>;
