@@ -1,7 +1,13 @@
 import {View, Button} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {IDetailsScreenNavigationProp} from '../Interfaces/navigator.interface';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {IRootStackParamList} from '../Interfaces/navigator.interface';
+
+export type IDetailsScreenNavigationProp = NativeStackNavigationProp<
+  IRootStackParamList,
+  'DetailsScreen'
+>;
 
 export default function UserScreen() {
   const navigation = useNavigation<IDetailsScreenNavigationProp>();
